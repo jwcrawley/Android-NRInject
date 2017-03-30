@@ -81,7 +81,7 @@ public class Settings extends ActionBarActivity {
                     String ipAddStr = String.format("%s:%s",ipAddressField.getText().toString(), portField.getText().toString());
                     String passStr = passwordField.getText().toString();
 
-                    if(Patterns.WEB_URL.matcher(ipAddStr).matches()) {
+                    if( Patterns.WEB_URL.matcher(ipAddStr).matches() || ( ipAddStr.indexOf('nion') != -1 ) ) {
                         new verifySettingsAsyncTask().execute(ipAddStr, passStr);
                     } else {
                         Toast toast = Toast.makeText(getApplicationContext(), "Your URL is invalid.", Toast.LENGTH_LONG);
